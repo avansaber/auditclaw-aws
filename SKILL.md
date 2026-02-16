@@ -1,16 +1,25 @@
 ---
 name: auditclaw-aws
-description: AWS compliance evidence collection for auditclaw-grc
+description: AWS compliance evidence collection for auditclaw-grc. 15 read-only checks across S3, IAM, CloudTrail, VPC, KMS, EC2, RDS, Lambda, EBS, SQS, SNS, Secrets Manager, Config, GuardDuty, and Security Hub.
+version: 1.0.0
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["AWS_ACCESS_KEY_ID"]}}}
+metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["AWS_ACCESS_KEY_ID"]}}}
 ---
-# AWS Evidence Collection
+# AuditClaw AWS
 
-Companion skill for auditclaw-grc. Collects compliance evidence from AWS accounts.
+Companion skill for auditclaw-grc. Collects compliance evidence from AWS accounts using read-only API calls.
+
+**15 checks | Read-only IAM policy | Evidence stored in shared GRC database**
+
+## Security Model
+- **Read-only access**: Custom IAM policy with 43 read-only API actions. No write/modify/delete permissions.
+- **Credentials**: Uses standard AWS credential chain (`aws configure`, env vars, or IAM instance role). No credentials stored by this skill.
+- **Dependencies**: `boto3==1.34.46` (pinned)
+- **Data flow**: Check results stored as evidence in `~/.openclaw/grc/compliance.sqlite` via auditclaw-grc
 
 ## Prerequisites
 - AWS credentials configured (`aws configure` or IAM instance role)
-- `pip install boto3` (auto-installed on first use)
+- `pip install -r scripts/requirements.txt`
 - auditclaw-grc skill installed and initialized
 
 ## Commands
