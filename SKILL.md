@@ -5,7 +5,7 @@ version: 1.0.1
 user-invocable: true
 homepage: https://www.auditclaw.ai
 source: https://github.com/avansaber/auditclaw-aws
-metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["AWS_ACCESS_KEY_ID"]}}}
+metadata: {"openclaw":{"type":"executable","install":{"pip":"scripts/requirements.txt"},"requires":{"bins":["python3"],"env":["AWS_ACCESS_KEY_ID","AWS_SECRET_ACCESS_KEY"]}}}
 ---
 # AuditClaw AWS
 
