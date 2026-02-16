@@ -3,7 +3,8 @@ name: auditclaw-aws
 description: AWS compliance evidence collection for auditclaw-grc. 15 read-only checks across S3, IAM, CloudTrail, VPC, KMS, EC2, RDS, Lambda, EBS, SQS, SNS, Secrets Manager, Config, GuardDuty, and Security Hub.
 version: 1.0.1
 user-invocable: true
-homepage: https://github.com/avansaber/auditclaw-aws
+homepage: https://www.auditclaw.ai
+source: https://github.com/avansaber/auditclaw-aws
 metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["AWS_ACCESS_KEY_ID"]}}}
 ---
 # AuditClaw AWS
